@@ -36,35 +36,29 @@ public interface AttributeAccessor {
 	 * @param name the unique attribute key
 	 * @param value the attribute value to be attached
 	 */
+	//设置属性名-->值
 	void setAttribute(String name, @Nullable Object value);
 
 	/**
-	 * Get the value of the attribute identified by {@code name}.
-	 * Return {@code null} if the attribute doesn't exist.
-	 * @param name the unique attribute key
-	 * @return the current value of the attribute, if any
+	 * 获取某个属性对应的值
 	 */
+
 	@Nullable
 	Object getAttribute(String name);
 
 	/**
-	 * Remove the attribute identified by {@code name} and return its value.
-	 * Return {@code null} if no attribute under {@code name} is found.
-	 * @param name the unique attribute key
-	 * @return the last value of the attribute, if any
+	 * 移除某个属性
 	 */
 	@Nullable
 	Object removeAttribute(String name);
 
 	/**
-	 * Return {@code true} if the attribute identified by {@code name} exists.
-	 * Otherwise return {@code false}.
-	 * @param name the unique attribute key
+	 * 判断是否包含某个属性
 	 */
 	boolean hasAttribute(String name);
 
 	/**
-	 * Return the names of all attributes.
+	 * 返回所有属性的名称
 	 */
 	String[] attributeNames();
 
