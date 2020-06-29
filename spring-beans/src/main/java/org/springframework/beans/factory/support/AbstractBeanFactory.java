@@ -193,9 +193,9 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	}
 
 
-	//---------------------------------------------------------------------
-	// Implementation of BeanFactory interface
-	//---------------------------------------------------------------------
+	/***********************************************************************
+	 * Implementation of BeanFactory interface                             *
+	 ***********************************************************************/
 
 	@Override
 	public Object getBean(String name) throws BeansException {

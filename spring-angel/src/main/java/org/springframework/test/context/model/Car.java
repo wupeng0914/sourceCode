@@ -1,16 +1,14 @@
 package org.springframework.test.context.model;
 
 /**
- * @Description Student
+ * @Description Car
  * @Author wupeng
  * @Motto Stay Hungry, Stay Foolish !
- * @Date 2020/6/24 4:59 下午
+ * @Date 2020/6/28 11:46 上午
  **/
-public class Student {
+public class Car {
 
 	private String name;
-
-	private Car car;
 
 	public String getName() {
 		return name;
@@ -20,23 +18,10 @@ public class Student {
 		this.name = name;
 	}
 
-	public Car getCar() {
-		return car;
-	}
-
-	public void setCar(Car car) {
-		this.car = car;
-	}
-
-	public String say(){
-		return "HelloWorld !";
-	}
-
 	@Override
 	public String toString() {
-		return "Student{" +
+		return "Car{" +
 				"name='" + name + '\'' +
-				", car=" + car +
 				'}';
 	}
 }
