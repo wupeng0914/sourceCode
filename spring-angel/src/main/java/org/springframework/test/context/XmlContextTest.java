@@ -8,6 +8,7 @@ import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.model.AwareBean;
 import org.springframework.test.context.model.Car;
 import org.springframework.test.context.model.Person;
 import org.springframework.test.context.model.Student;
@@ -93,20 +94,22 @@ public class XmlContextTest {
 /************************************************** BeanDefinition 合并 ************************************************/
 //		testBeanDefinition();
 /**************************************************  BeanPostProcessor  ***********************************************/
-		testPostProcessor();
+//		testPostProcessor();
+/**************************************************  AwareBean  *******************************************************/
+		testAwareBean();
+/**************************************************  AwareBean  *******************************************************/
+/**************************************************  AwareBean  *******************************************************/
+/**************************************************  AwareBean  *******************************************************/
 
 	}
 
-	//BeanDefinition 合并测试
-	public static void testBeanDefinition(){
-		//创建bean容器
+	//AwareBean
+	public static void testAwareBean(){
 		DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-		//创建一个bean xml解析器
-		XmlBeanDefinitionReader beanDefinitionReader = new XmlBeanDefinitionReader(factory);
-		//解析bean xml，将解析过程中产生的BeanDefinition注册到DefaultListableBeanFactory容器中
-		beanDefinitionReader.loadBeanDefinitions("context/bean-parent.xml");
-		//遍历容器中注册的所有bean信息
-		for (String beanName : factory.getBeanDefinitionNames()){
+		factory.registerBeanDefinition("awareBean ：",
+				BeanDefinitionBuilder.genericBeanDefinition(AwareBean.class).getBeanDefinition());
+		factory.getBean("awareBean");
+  		for (String beanName : factory.getBeanDefinitionNames()){
 			//通过bean名称获取原始的注册的BeanDefinition信息
 			BeanDefinition beanDefinition = factory.getBeanDefinition(beanName);
 			//获取合并之后的BeanDefinition信息
